@@ -13,16 +13,13 @@ const paper = document.getElementById('paper');
 
 scissor.addEventListener('click', () => {
     runde('Schere');
-    console.log("Player One: Schere")
 })
 stone.addEventListener('click', () => {
     runde('Stein');
-    console.log("Player One: Stein")
 })
 
 paper.addEventListener('click', () => {
     runde('Papier');
-    console.log("Player One: Papier")
 })
 
 
@@ -32,38 +29,37 @@ function getWeaponsPlayerTwo() {
 }
 
 
-console.log(getWeaponsPlayerTwo());
 
 
 function runde(weaponsPlayerOne) {
-    if (playerOneCount >= 3 || playerTwoCount >= 3) return;
+    if (playerOneCount >= 3 || playerTwoCount >= 3) {
+        playerOneDisplay = '';
+        playerTwoDisplay = '';
+        return;
+    };
     const playerTwoChoice = getWeaponsPlayerTwo();
 
 
-    if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Stein") {
-        anouncement.innerText = "You won!";
-        playerOneCount++;
+    if (playerTwoChoice === weaponsPlayerOne) {
+        anouncement.innerText = "It's a tie";
     } else if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Papier") {
-        anouncement.innerText = "You loose!";
+        anouncement.innerText = "You lost the round!";
         playerTwoCount++;
-    } else if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Schere") {
-        anouncement.innerText = "It's a tie!";
     } else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Schere") {
-        anouncement.innerText = "You loose!";
+        anouncement.innerText = "You lost the round!";
         playerTwoCount++;
-    } else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Stein") {
-        anouncement.innerText = "It's a tie!";
-    } else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Papier") {
-        anouncement.innerText = "You won!";
-        playerOneCount++;
-    } else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Schere") {
-        anouncement.innerText = "You won!";
-        playerOneCount++;
     } else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Stein") {
-        anouncement.innerText = "You loose!";
+        anouncement.innerText = "You lost the round!";
         playerTwoCount++;
-    } else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Papier") {
-        anouncement.innerText = "It's a tie!";
+    } else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Schere") {
+        anouncement.innerText = "You won the round!";
+        playerOneCount++;
+    } else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Papier") {
+        anouncement.innerText = "You won the round!";
+        playerOneCount++;
+    } else if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Stein") {
+        anouncement.innerText = "You won the round!";
+        playerOneCount++;
     }
 
     playerOneDisplay.innerText = playerOneCount;
@@ -75,8 +71,8 @@ function runde(weaponsPlayerOne) {
 function gameOver() {
 
     if (playerOneCount == 3) {
-        anouncement.innerText = "You won!";
+        anouncement.innerText = "You won the game!";
     } else if (playerTwoCount == 3) {
-        anouncement.innerText = "You loose!";
+        anouncement.innerText = "You lost the game!";
     }
 }
