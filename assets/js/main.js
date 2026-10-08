@@ -1,7 +1,6 @@
 let playerOneCount = 0;
 let playerTwoCount = 0;
 let weaponsPlayerTwo = ["Schere", "Stein", "Papier"];
-let weaponsPlayerOne = '';
 
 let anouncement = document.getElementById('anouncement');
 
@@ -33,44 +32,44 @@ function getWeaponsPlayerTwo() {
 console.log(getWeaponsPlayerTwo());
 
 
-function runde(weaponChoice) {
+function runde(weaponsPlayerOne) {
     const playerTwoChoice = getWeaponsPlayerTwo();
 
 
-if (getWeaponsPlayerTwo === "Schere" && weaponsPlayerOne === "Stein") {
+if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Stein") {
     console.log("you win");
     anouncement.innerText = "You won!";
     playerOneCount ++;
     console.log(playerOneCount)
-} else if (getWeaponsPlayerTwo === "Schere" && weaponsPlayerOne === "Papier") {
+} else if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Papier") {
     console.log("you loose");
     anouncement.innerText = "You loose!";
     playerTwoCount ++;
-} else if (getWeaponsPlayerTwo === "Schere" && weaponsPlayerOne === "Schere") {
+} else if (playerTwoChoice === "Schere" && weaponsPlayerOne === "Schere") {
     console.log("it's a tie");
     anouncement.innerText = "It's a tie!";
-} else if (getWeaponsPlayerTwo === "Stein" && weaponsPlayerOne === "Schere") {
+} else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Schere") {
     console.log("you loose")
     anouncement.innerText = "You loose!";
     playerTwoCount ++;
-} else if (getWeaponsPlayerTwo === "Stein" && weaponsPlayerOne === "Stein") {
+} else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Stein") {
     console.log("it's a tie")
     anouncement.innerText = "It's a tie!";
-} else if (getWeaponsPlayerTwo === "Stein" && weaponsPlayerOne === "Papier") {
+} else if (playerTwoChoice === "Stein" && weaponsPlayerOne === "Papier") {
     console.log("you win")
     anouncement.innerText = "You won!";
     playerOneCount ++;
     console.log(playerOneCount)
-} else if (getWeaponsPlayerTwo === "Papier" && weaponsPlayerOne === "Schere") {
+} else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Schere") {
     console.log("you win")
     anouncement.innerText = "You won!";
     playerOneCount ++;
     console.log(playerOneCount)
-} else if (getWeaponsPlayerTwo === "Papier" && weaponsPlayerOne === "Stein") {
+} else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Stein") {
     console.log("you loose")
     anouncement.innerText = "You loose!";
     playerTwoCount ++;
-} else if (getWeaponsPlayerTwo === "Papier" && weaponsPlayerOne === "Papier") {
+} else if (playerTwoChoice === "Papier" && weaponsPlayerOne === "Papier") {
     console.log("it's a tie")
     anouncement.innerText = "It's a tie!";
 }
